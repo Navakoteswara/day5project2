@@ -18,7 +18,7 @@ RUN mkdir -p /tmp/project && \
 FROM httpd:latest
 
 # Copy project files from the downloader stage
-COPY --from=downloader /tmp/project/micro-html /usr/local/apache2/htdocs/
+COPY --from=downloader /tmp/project/microo-html /usr/local/apache2/htdocs/
 
 # Expose HTTP port
 EXPOSE 80
