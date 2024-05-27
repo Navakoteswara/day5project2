@@ -12,13 +12,13 @@ ENV PROJECT_URL=https://www.free-css.com/assets/files/free-css-templates/downloa
 # Download and extract the CSS project
 RUN mkdir -p /tmp/project && \
     curl -L $PROJECT_URL -o /tmp/project/project.zip && \
-    unzip /tmp/project/micro.zip -d /tmp/project
+    unzip /tmp/project/project.zip -d /tmp/project
 
 # Stage 2: Serve files using Apache HTTP Server
 FROM httpd:latest
 
 # Copy project files from the downloader stage
-COPY --from=downloader /tmp/project/electrochip-html /usr/local/apache2/htdocs/
+COPY --from=downloader /tmp/project/micro-html /usr/local/apache2/htdocs/
 
 # Expose HTTP port
 EXPOSE 80
