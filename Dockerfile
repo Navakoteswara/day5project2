@@ -6,12 +6,13 @@ FROM alpine:latest AS downloader
 RUN apk --no-cache add curl unzip
 
 # Define environment variables
-ENV PROJECT_URL=https://www.free-css.com/assets/files/free-css-templates/download/page294/electrochip.zip
+#ENV PROJECT_URL=https://www.free-css.com/assets/files/free-css-templates/download/page294/electrochip.zip
+ENV PROJECT_URL=https://www.free-css.com/assets/files/free-css-templates/download/page292/microo.zip
 
 # Download and extract the CSS project
 RUN mkdir -p /tmp/project && \
     curl -L $PROJECT_URL -o /tmp/project/project.zip && \
-    unzip /tmp/project/project.zip -d /tmp/project
+    unzip /tmp/project/micro.zip -d /tmp/project
 
 # Stage 2: Serve files using Apache HTTP Server
 FROM httpd:latest
