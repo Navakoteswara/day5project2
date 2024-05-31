@@ -19,7 +19,7 @@ RUN mkdir -p /tmp/project && \
 FROM httpd:latest
 
 # Copy project files from the downloader stage
-COPY --from=downloader /tmp/project/fitapp-html /usr/local/apache2/htdocs/
+COPY --from=downloader /tmp/project/mobile-app-html-template /usr/local/apache2/htdocs/
 
 # Expose HTTP port
 EXPOSE 80
